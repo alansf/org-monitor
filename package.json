@@ -21,7 +21,7 @@
     "numeral": "2.0.6",
     "omit-deep": "0.3.0",
     "passport": "0.4.0",
-    "passport-saml": "0.35.0",
+    "passport-saml": "^0.35.0",
     "pg-monitor": "1.1.0",
     "pug": "2.0.3",
     "secure-compare": "3.0.1",
