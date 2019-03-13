@@ -16,7 +16,9 @@ const bodyparser = require('body-parser')
 const routes = require('./routes/index.js')
 const db = require('./lib/db.js')
 const serializeError = require('serialize-error')
+const dotenv = require('dotenv')
 
+dotenv.load()
 /* Express Config */
 let app = express()
 app.use(helmet())
