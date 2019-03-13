@@ -5,6 +5,12 @@
   For full license text, see LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
 */
 
+const dotenv = require('dotenv')
+
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config()
+}
+
 const agenda = require('./lib/agenda.js')
 
 agenda.on('ready', async () => {

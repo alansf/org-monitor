@@ -5,6 +5,12 @@
   For full license text, see LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
 */
 
+const dotenv = require('dotenv')
+
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config()
+}
+
 const path = require('path')
 const express = require('express')
 const helmet = require('helmet')
@@ -16,11 +22,7 @@ const bodyparser = require('body-parser')
 const routes = require('./routes/index.js')
 const db = require('./lib/db.js')
 const serializeError = require('serialize-error')
-const dotenv = require('dotenv')
 
-if (process.env.NODE_ENV !== 'production') {
-  dotenv.config()
-}
 /* Express Config */
 let app = express()
 app.use(helmet())
