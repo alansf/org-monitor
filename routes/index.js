@@ -201,6 +201,16 @@ router.post('/refresh_token', async (req, res) => {
   res.send({ success: true })
 })
 
+router.post('/token', async (req, res) => {
+  const adminToken = req.get('Admin-Token')
+  if (!compare(adminToken, process.env.ADMIN_TOKEN)) return res.json({ success: false, err: 'Invalid token' })
+  const creds = await Org.getAllCreds()
+  creds.map(async cred => {
+    agenda.now('refreshOrg', { orgId: cred.orgId })
+  })
+  res.send({ success: true })
+})
+
 router.post('/reschedule', async (req, res) => {
   // Delete existing records first, i.e.: db.getCollection('agendaJobs').remove({})
   const adminToken = req.get('Admin-Token')
