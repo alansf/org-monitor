@@ -18,7 +18,9 @@ const db = require('./lib/db.js')
 const serializeError = require('serialize-error')
 const dotenv = require('dotenv')
 
-dotenv.load()
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config()
+}
 /* Express Config */
 let app = express()
 app.use(helmet())
