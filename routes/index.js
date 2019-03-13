@@ -71,6 +71,7 @@ router.get('/callback', async (req, res) => {
 
   const userInfo = await conn.identity()
   const db = req.app.get('db')
+  console.log(db)
 
   let env = {
     username: userInfo.username,
